@@ -1,5 +1,3 @@
-import React from 'react'
+import { App } from 'components/src/App'
 
-const Index = () => <h1>Hola desde web</h1>
-
-export default Index
+export default App
