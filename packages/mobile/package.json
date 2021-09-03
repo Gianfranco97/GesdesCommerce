@@ -1,7 +1,8 @@
 {
+  "private": true,
   "name": "mobile",
   "version": "0.0.1",
-  "private": true,
+  "license": "SEE LICENSE IN ../../LICENSE",
   "scripts": {
     "android": "concurrently \"yarn start\" \"react-native run-android --no-packager\"",
     "ios": "concurrently \"yarn start\" \"react-native run-ios --no-packager\"",
