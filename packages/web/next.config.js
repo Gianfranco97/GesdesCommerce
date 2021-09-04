@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign,@typescript-eslint/no-var-requires */
 
-const withTM = require('next-transpile-modules')(['components'], {
+const withTM = require('next-transpile-modules')(['shared'], {
   resolveSymlinks: true,
 })
 

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "components",
+  "name": "shared",
   "version": "0.0.1",
   "license": "SEE LICENSE IN ../../LICENSE",
   "scripts": {
@@ -10,6 +10,9 @@
     "@types/react": "*",
     "@types/react-native": "*",
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "@eva-design/eva": "*",
+    "@ui-kitten/components": "*",
+    "react-native-svg": "*"
   }
 }
