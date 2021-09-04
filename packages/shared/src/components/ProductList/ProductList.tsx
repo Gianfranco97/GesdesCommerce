@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, StyleSheet, View } from 'react-native'
+import Colors from '../../constants/Colors'
 import IProduct from '../../types/IPoduct'
 import ProductCard from '../ProductCard'
 
@@ -24,7 +25,8 @@ const ProductList = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'grey'
+    backgroundColor: Colors.MintCream,
+    alignItems: 'center',
   },
   productList: {
     flexDirection: 'row',
@@ -32,6 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    maxWidth: 1400,
   },
 })
 

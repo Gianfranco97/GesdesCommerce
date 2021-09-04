@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import Colors from '../../constants/Colors'
 import IProduct from '../../types/IPoduct'
+import PrimaryButton from '../PrimaryButton'
 
 interface IProps {
   product: IProduct
@@ -10,32 +12,36 @@ const ProductCard = (props: IProps) => {
   const { product } = props
 
   return (
-    <View style={styles.cardContainer}>
-      <View style={styles.card}>
+    <TouchableOpacity style={styles.cardContainer}>
+      <View>
         <View style={styles.imageContainer}>
           <Image style={styles.image} source={{ uri: product.image }} />
         </View>
+
         <Text style={styles.title}>{product.title}</Text>
+
         <Text style={styles.price}>${product.price}</Text>
       </View>
-    </View>
+
+      <PrimaryButton
+        title="+ Agregar al carrito"
+        onPress={() => console.log('+ Add', product.title)}
+      />
+    </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
   cardContainer: {
+    width: 260,
     margin: 25,
-    justifyContent: 'center',
-    backgroundColor: 'white',
-    height: 380,
+    justifyContent: 'space-between',
+    backgroundColor: Colors.White,
     borderRadius: 15,
-    padding: 15,
-  },
-  card: {
-    width: 240,
+    padding: 25,
   },
   imageContainer: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   image: {
     height: 180,
@@ -47,10 +53,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   price: {
-    marginVertical: 10,
+    paddingTop: 10,
+    paddingBottom: 30,
     fontSize: 14,
     fontWeight: 'bold',
-    color: 'green',
+    color: Colors.ImperialRed,
   },
 })
 
