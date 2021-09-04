@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, TextInput, StyleSheet, Text } from 'react-native'
 import Colors from '../../constants/Colors'
+import useUserAuth from '../../hooks/useUserAuth'
 import PrimaryButton from '../PrimaryButton'
 
-const LoginFrom = () => {
-  const [userName, setUserName] = useState('')
-  const [password, setPassword] = useState('')
+interface IProps {
+  onSuccessLogin: () => void
+}
 
-  const login = () => {
-    console.log('login!!!!')
-  }
+const LoginFrom = (props: IProps) => {
+  const { onSuccessLogin } = props
+  const { userName, setUserName, password, setPassword, login } = useUserAuth({
+    onSuccessLogin,
+  })
 
   return (
     <View style={styles.container}>
