@@ -1,11 +1,11 @@
 import React from 'react'
-import { View, TextInput, StyleSheet, Text } from 'react-native'
+import { View, TextInput, StyleSheet, Text, Linking } from 'react-native'
 import Colors from '../../constants/Colors'
 import useUserAuth from '../../hooks/useUserAuth'
 import PrimaryButton from '../PrimaryButton'
 
 interface IProps {
-  onSuccessLogin: () => void
+  onSuccessLogin: (token) => void
 }
 
 const LoginFrom = (props: IProps) => {
@@ -16,13 +16,39 @@ const LoginFrom = (props: IProps) => {
 
   return (
     <View style={styles.container}>
+      {/* ---- Mensaje de dasarrollo ---- */}
+
+      <View>
+        <Text>
+          [En Desarrollo] De momento el API solo deja hacer login con
+          determinados usuarios.
+        </Text>
+        <Text>
+          <Text style={{ fontWeight: 'bold' }}>username: </Text> hopkins{' '}
+        </Text>
+        <Text>
+          <Text style={{ fontWeight: 'bold' }}>password: </Text> William56$hj
+        </Text>
+        <Text>
+          Lista de todos los usuarios validos:{' '}
+          <Text
+            style={{ color: 'blue' }}
+            onPress={() => Linking.openURL('https://fakestoreapi.com/users')}
+          >
+            https://fakestoreapi.com/users
+          </Text>
+        </Text>
+      </View>
+
+      {/* -------- */}
+
       <View style={styles.form}>
-        <Text>Correo</Text>
+        <Text>Usuario</Text>
         <TextInput
           style={styles.input}
           onChangeText={setUserName}
           value={userName}
-          placeholder="juanito@perez.es"
+          placeholder="juanito"
           keyboardType="email-address"
           autoFocus
         />

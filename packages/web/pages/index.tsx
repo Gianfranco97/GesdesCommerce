@@ -1,12 +1,6 @@
 import React from 'react'
-import BasicLayout from 'shared/src/layouts/BasicLayout'
+import LoginPage from './login'
 
-const Home = () => (
-  <BasicLayout>
-    <div>
-      <p>Hola</p>
-    </div>
-  </BasicLayout>
-)
+const Home = () => <LoginPage />
 
 export default Home

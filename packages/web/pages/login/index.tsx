@@ -6,8 +6,8 @@ import { useRouter } from 'next/router'
 const LoginPage = () => {
   const router = useRouter()
 
-  const onSuccessLogin = () => {
-    console.log('onSuccessLogin')
+  const onSuccessLogin = (token: string) => {
+    localStorage.setItem('accessToken', token)
     router.replace('/products')
   }
 
