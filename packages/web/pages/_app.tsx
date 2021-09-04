@@ -1,14 +1,8 @@
 import React from 'react'
-import * as eva from '@eva-design/eva'
-import type { AppProps /* , AppContext */ } from 'next/app'
-import { ApplicationProvider } from '@ui-kitten/components'
+import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ApplicationProvider {...eva} theme={eva.light}>
-      <Component {...pageProps} />
-    </ApplicationProvider>
-  )
+  return <Component {...pageProps} />
 }
 
 export default MyApp

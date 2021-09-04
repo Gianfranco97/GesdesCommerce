@@ -1,3 +1,1 @@
-import LoginFrom from './LoginFrom'
-
-export default LoginFrom
+export { default } from './LoginFrom'
