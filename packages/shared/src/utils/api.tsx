@@ -48,6 +48,12 @@ const API = {
     })
   },
 
+  getProductByID(id: string) {
+    return this.makeRequest({
+      url: `${this.serverURL}/products/${id}`,
+    })
+  },
+
   getAllCategories() {
     return this.makeRequest({
       url: `${this.serverURL}/products/categories`,

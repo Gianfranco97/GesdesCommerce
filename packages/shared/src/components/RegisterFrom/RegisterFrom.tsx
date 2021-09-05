@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, TextInput, StyleSheet, Text, Linking } from 'react-native'
+import { Button } from '@ui-kitten/components'
 import Colors from '../../constants/Colors'
 import useUserAuth from '../../hooks/useUserAuth'
-import PrimaryButton from '../PrimaryButton'
 
 interface IProps {
   onSuccessRegister: () => void
@@ -52,7 +52,7 @@ const RegisterFrom = (props: IProps) => {
           secureTextEntry
         />
 
-        <PrimaryButton title="Enviar" onPress={register} />
+        <Button onPress={register}>Enviar</Button>
       </View>
     </View>
   )

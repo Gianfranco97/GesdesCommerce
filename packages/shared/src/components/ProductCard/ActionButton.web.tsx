@@ -1,6 +1,7 @@
 import React from 'react'
+import { Button } from '@ui-kitten/components'
+import { useRouter } from 'next/router'
 import IProduct from '../../types/IPoduct'
-import PrimaryButton from '../PrimaryButton'
 
 interface IProps {
   product: IProduct
@@ -8,12 +9,10 @@ interface IProps {
 
 const ActionButton = (props: IProps) => {
   const { product } = props
+  const router = useRouter()
 
   return (
-    <PrimaryButton
-      title="Ver"
-      onPress={() => console.log('Ver', product.title)}
-    />
+    <Button onPress={() => router.push(`/products/${product.id}`)}>Ver</Button>
   )
 }
 

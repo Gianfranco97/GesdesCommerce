@@ -9,6 +9,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@eva-design/eva": "^2.1.1",
+    "@ui-kitten/components": "^5.1.1",
+    "@ui-kitten/eva-icons": "^5.1.1",
     "next": "10.0.2",
     "next-transpile-modules": "4.1.0",
     "react": "17.0.1",

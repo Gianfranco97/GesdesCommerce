@@ -1,6 +1,5 @@
 import React from 'react'
-import { Text, StyleSheet, View } from 'react-native'
-import Colors from '../../constants/Colors'
+import { StyleSheet, View } from 'react-native'
 import IProduct from '../../types/IPoduct'
 import ProductCard from '../ProductCard'
 
@@ -14,7 +13,6 @@ const ProductList = (props: IProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.productList}>
-
         {products.map((product) => (
           <ProductCard key={product.id.toString()} product={product} />
         ))}
@@ -25,8 +23,8 @@ const ProductList = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: Colors.MintCream,
     alignItems: 'center',
+    marginBottom: 60,
   },
   productList: {
     flexDirection: 'row',

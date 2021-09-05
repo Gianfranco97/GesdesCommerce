@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Text } from 'react-native'
 import { useRouter } from 'next/router'
 import CartList from 'shared/src/components/CartList'
 import withAuth from 'shared/src/hocs/withAuth'
-import api from '../../../shared/src/utils/api'
-import LoggedLayout from '../../../shared/src/layouts/LoggedLayout'
+import api from 'shared/src/utils/api'
+import LoggedLayout from 'shared/src/layouts/LoggedLayout'
+import { Spinner } from '@ui-kitten/components'
 
 const CarPage = () => {
   const router = useRouter()
@@ -34,7 +34,7 @@ const CarPage = () => {
   return (
     <LoggedLayout>
       {loading ? (
-        <Text>Cargando...</Text>
+        <Spinner size="large" />
       ) : (
         <CartList products={products} goToPayPage={goToPayPage} />
       )}

@@ -1,11 +1,11 @@
 import React from 'react'
 import { View, TextInput, StyleSheet, Text, Linking } from 'react-native'
+import { Button } from '@ui-kitten/components'
 import Colors from '../../constants/Colors'
 import useUserAuth from '../../hooks/useUserAuth'
-import PrimaryButton from '../PrimaryButton'
 
 interface IProps {
-  onSuccessLogin: (token) => void
+  onSuccessLogin: (token: string) => void
 }
 
 const LoginFrom = (props: IProps) => {
@@ -62,7 +62,7 @@ const LoginFrom = (props: IProps) => {
           secureTextEntry
         />
 
-        <PrimaryButton title="Enviar" onPress={login} />
+        <Button onPress={login}>Enviar</Button>
       </View>
     </View>
   )

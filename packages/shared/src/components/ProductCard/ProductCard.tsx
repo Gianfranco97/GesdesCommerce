@@ -1,5 +1,14 @@
 import React from 'react'
-import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import {
+  View,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Platform,
+} from 'react-native'
+import { Text } from '@ui-kitten/components'
+import { useRouter } from 'next/router'
+import { useLinkTo, useNavigation } from '@react-navigation/native'
 import Colors from '../../constants/Colors'
 import IProduct from '../../types/IPoduct'
 import ActionButton from './ActionButton'
@@ -10,13 +19,27 @@ interface IProps {
 
 const ProductCard = (props: IProps) => {
   const { product } = props
+  const router = useRouter()
+  const linkTo = useLinkTo()
+  const navigation = useNavigation()
+
+  const goToProductDetail = () => {
+    if (Platform.OS === 'web') {
+      router.push(`/products/${product.id}`)
+    } else {
+      linkTo(`/SingleProduct/`, { id: product.id })
+      navigation.navigate({ key: "SingleProduct" }, { id: product.id })
+    }
+  }
 
   return (
-    <TouchableOpacity style={styles.cardContainer}>
+    <TouchableOpacity style={styles.cardContainer} onPress={goToProductDetail}>
       <View>
         <View style={styles.imageContainer}>
           <Image style={styles.image} source={{ uri: product.image }} />
         </View>
+
+        <Text style={styles.category}>{product.category}</Text>
 
         <Text style={styles.title}>{product.title}</Text>
 
@@ -54,6 +77,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
+  },
+  category: {
+    backgroundColor: Colors.MintCream,
+    fontSize: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    marginBottom: 10,
+    borderRadius: 10,
+    alignSelf: 'flex-start',
   },
   price: {
     paddingTop: 10,

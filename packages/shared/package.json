@@ -11,6 +11,12 @@
     "@types/react-native": "*",
     "react": "*",
     "react-native": "*",
-    "next": "*"
+    "next": "*",
+    "@ui-kitten/components": "*", 
+    "@eva-design/eva": "*",
+    "react-native-svg": "*",
+    "@ui-kitten/eva-icons": "*",
+    "@react-navigation/stack": "*",
+    "@react-navigation/native": "*"
   }
 }

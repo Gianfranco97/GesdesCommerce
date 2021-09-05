@@ -4,15 +4,15 @@ import ProductList from 'shared/src/components/ProductList'
 import { Spinner } from '@ui-kitten/components'
 import withAuth from 'shared/src/hocs/withAuth'
 import api from 'shared/src/utils/api'
+import { ScrollView } from 'react-native'
 
-const ProductsPage = () => {
+const ProductsScreen = () => {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
 
   const getProducts = useCallback(async () => {
     try {
       const res = await api.getAllProducts()
-      console.log('res', res)
 
       setProducts(res)
       setLoading(false)
@@ -28,9 +28,16 @@ const ProductsPage = () => {
 
   return (
     <LoggedLayout>
-      {loading ? <Spinner size="large" /> : <ProductList products={products} />}
+      {loading ? (
+        <Spinner size="large" />
+      ) : (
+        <ScrollView>
+          <ProductList products={products} />
+        </ScrollView>
+      )}
     </LoggedLayout>
   )
 }
 
-export default withAuth(ProductsPage)
+// export default withAuth(ProductsScreen)
+export default ProductsScreen
