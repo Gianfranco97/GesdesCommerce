@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import Colors from '../../constants/Colors'
 import IProduct from '../../types/IPoduct'
-import PrimaryButton from '../PrimaryButton'
+import ActionButton from './ActionButton'
 
 interface IProps {
   product: IProduct
@@ -23,10 +23,7 @@ const ProductCard = (props: IProps) => {
         <Text style={styles.price}>${product.price}</Text>
       </View>
 
-      <PrimaryButton
-        title="+ Agregar al carrito"
-        onPress={() => console.log('+ Add', product.title)}
-      />
+      <ActionButton product={product} />
     </TouchableOpacity>
   )
 }
@@ -37,17 +34,23 @@ const styles = StyleSheet.create({
     margin: 25,
     justifyContent: 'space-between',
     backgroundColor: Colors.White,
+    borderWidth: 3,
+    borderColor: Colors.MintCream,
     borderRadius: 15,
     padding: 25,
   },
   imageContainer: {
     alignItems: 'center',
+    flex: 1,
+    borderBottomWidth: 3,
+    borderColor: Colors.MintCream,
+    marginBottom: 20,
   },
   image: {
     height: 180,
     width: 180,
     resizeMode: 'contain',
-    marginBottom: 25,
+    marginBottom: 20,
   },
   title: {
     fontSize: 16,

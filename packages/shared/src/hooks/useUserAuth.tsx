@@ -2,11 +2,12 @@ import { useState } from 'react'
 import api from '../utils/api'
 
 interface IuseUserAuth {
-  onSuccessLogin?: (token) => void
+  onSuccessLogin?: (token: string) => void
   onSuccessRegister?: () => void
 }
 
 const useUserAuth = ({ onSuccessLogin, onSuccessRegister }: IuseUserAuth) => {
+  const [email, setEmail] = useState('')
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
 
@@ -22,9 +23,10 @@ const useUserAuth = ({ onSuccessLogin, onSuccessRegister }: IuseUserAuth) => {
     }
   }
 
-  const register = () => {
+  const register = async () => {
     try {
-      console.log('register!!!!')
+      // const res = await api.register(email, userName, password)
+
       if (onSuccessRegister) {
         onSuccessRegister()
       }
@@ -34,6 +36,8 @@ const useUserAuth = ({ onSuccessLogin, onSuccessRegister }: IuseUserAuth) => {
   }
 
   return {
+    email,
+    setEmail,
     userName,
     setUserName,
     password,

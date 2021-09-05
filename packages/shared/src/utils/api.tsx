@@ -34,9 +34,29 @@ const API = {
     })
   },
 
+  register(email: string, username: string, password: string) {
+    return this.makeRequest({
+      url: `${this.serverURL}/users`,
+      method: 'POST',
+      data: { email, username, password },
+    })
+  },
+
   getAllProducts() {
     return this.makeRequest({
       url: `${this.serverURL}/products`,
+    })
+  },
+
+  getAllCategories() {
+    return this.makeRequest({
+      url: `${this.serverURL}/products/categories`,
+    })
+  },
+
+  getCart() {
+    return this.makeRequest({
+      url: `${this.serverURL}/products?limit=2`,
     })
   },
 }

@@ -25,7 +25,7 @@ const ProductList = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.MintCream,
+    // backgroundColor: Colors.MintCream,
     alignItems: 'center',
   },
   productList: {

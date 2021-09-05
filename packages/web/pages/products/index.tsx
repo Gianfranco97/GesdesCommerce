@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { Text } from 'react-native'
 import LoggedLayout from 'shared/src/layouts/LoggedLayout'
 import ProductList from 'shared/src/components/ProductList'
 import withAuth from 'shared/src/hocs/withAuth'
-import { useRouter } from 'next/router'
 import api from '../../../shared/src/utils/api'
 
 const ProductsPage = () => {
@@ -12,7 +12,7 @@ const ProductsPage = () => {
   const getProducts = async () => {
     try {
       const res = await api.getAllProducts()
-      console.log('res', res);
+      console.log('res', res)
 
       setProducts(res)
       setLoading(false)
@@ -26,16 +26,9 @@ const ProductsPage = () => {
     getProducts()
   }, [])
 
-  const router = useRouter()
-
   return (
-    <LoggedLayout
-      onLogout={() => {
-        localStorage.clear()
-        router.push('/')
-      }}
-    >
-      <ProductList products={products} />
+    <LoggedLayout>
+      {loading ? <Text>Cargando...</Text> : <ProductList products={products} />}
     </LoggedLayout>
   )
 }

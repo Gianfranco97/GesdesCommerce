@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Text } from 'react-native'
+import { useRouter } from 'next/router'
 import BasicLayout from './BasicLayout'
 
 interface IProps {
@@ -7,12 +8,15 @@ interface IProps {
 }
 
 export default function LoggedLayout(props: IProps) {
+  const router = useRouter()
   const { children } = props
+
   const onLogout = () => {
-    console.log('holiss mobil')
+    localStorage.clear()
+    router.push('/')
   }
   const openCart = () => {
-    console.log('holiss mobil')
+    router.push('/carrito')
   }
 
   return (
