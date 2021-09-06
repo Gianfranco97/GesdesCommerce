@@ -1,34 +1,36 @@
 import React from 'react'
-import { View, TextInput, StyleSheet, Text, Linking } from 'react-native'
-import { Button } from '@ui-kitten/components'
-import Colors from '../../constants/Colors'
+import { StyleSheet, Linking } from 'react-native'
+import { Input, Layout, Button, Text } from '@ui-kitten/components'
 import useUserAuth from '../../hooks/useUserAuth'
 
 interface IProps {
   onSuccessLogin: (token: string) => void
+  goToRegister: () => void
 }
 
 const LoginFrom = (props: IProps) => {
-  const { onSuccessLogin } = props
+  const { onSuccessLogin, goToRegister } = props
   const { userName, setUserName, password, setPassword, login } = useUserAuth({
     onSuccessLogin,
   })
 
   return (
-    <View style={styles.container}>
+    <Layout>
       {/* ---- Mensaje de dasarrollo ---- */}
-
-      <View>
+      <Layout style={styles.infoContainer} level="4">
         <Text>
           [En Desarrollo] De momento el API solo deja hacer login con
           determinados usuarios.
         </Text>
+
         <Text>
-          <Text style={{ fontWeight: 'bold' }}>username: </Text> hopkins{' '}
+          <Text style={{ fontWeight: 'bold' }}>username: </Text> hopkins
         </Text>
+
         <Text>
           <Text style={{ fontWeight: 'bold' }}>password: </Text> William56$hj
         </Text>
+
         <Text>
           Lista de todos los usuarios validos:{' '}
           <Text
@@ -38,23 +40,23 @@ const LoginFrom = (props: IProps) => {
             https://fakestoreapi.com/users
           </Text>
         </Text>
-      </View>
-
+      </Layout>
       {/* -------- */}
 
-      <View style={styles.form}>
-        <Text>Usuario</Text>
-        <TextInput
+      <Layout style={styles.form} level="3">
+        <Text style={styles.title}>Iniciar sesión</Text>
+
+        <Input
+          label="Usuario"
           style={styles.input}
           onChangeText={setUserName}
           value={userName}
           placeholder="juanito"
           keyboardType="email-address"
-          autoFocus
         />
 
-        <Text>Contraseña</Text>
-        <TextInput
+        <Input
+          label="Contraseña"
           style={styles.input}
           onChangeText={setPassword}
           value={password}
@@ -62,33 +64,44 @@ const LoginFrom = (props: IProps) => {
           secureTextEntry
         />
 
-        <Button onPress={login}>Enviar</Button>
-      </View>
-    </View>
+        <Button onPress={goToRegister} appearance="ghost">
+          ¿no tienes un usuario?
+        </Button>
+
+        <Button style={styles.button} onPress={login}>
+          Enviar
+        </Button>
+      </Layout>
+    </Layout>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
+  infoContainer: {
+    padding: 20,
+    borderRadius: 15,
+    alignSelf: 'center',
+    width: '90%',
+    maxWidth: 900,
+    marginVertical: 40,
+  },
+  title: {
+    textAlign: 'center',
+    fontSize: 24,
+    marginBottom: 10,
   },
   form: {
-    maxWidth: 800,
-    minWidth: 400,
-    margin: 40,
-    padding: 40,
+    alignSelf: 'center',
+    width: '90%',
+    maxWidth: 900,
+    padding: 30,
     borderRadius: 15,
-    backgroundColor: Colors.MintCream,
-    borderWidth: 1,
-    borderColor: Colors.CeladonBlue,
   },
   input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    borderRadius: 7,
     padding: 10,
+  },
+  button: {
+    marginTop: 10,
   },
 })
 

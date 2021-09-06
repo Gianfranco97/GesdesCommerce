@@ -1,15 +1,15 @@
 import React from 'react'
-import { View, TextInput, StyleSheet, Text, Linking } from 'react-native'
-import { Button } from '@ui-kitten/components'
-import Colors from '../../constants/Colors'
+import { StyleSheet } from 'react-native'
+import { Input, Layout, Button, Text } from '@ui-kitten/components'
 import useUserAuth from '../../hooks/useUserAuth'
 
 interface IProps {
   onSuccessRegister: () => void
+  goToLogin: () => void
 }
 
 const RegisterFrom = (props: IProps) => {
-  const { onSuccessRegister } = props
+  const { onSuccessRegister, goToLogin } = props
   const {
     email,
     setEmail,
@@ -23,10 +23,12 @@ const RegisterFrom = (props: IProps) => {
   })
 
   return (
-    <View style={styles.container}>
-      <View style={styles.form}>
-        <Text>Correo</Text>
-        <TextInput
+    <Layout style={styles.container}>
+      <Layout style={styles.form} level="3">
+        <Text style={styles.title}>Registrarse</Text>
+
+        <Input
+          label="Correo"
           style={styles.input}
           onChangeText={setEmail}
           value={email}
@@ -35,16 +37,16 @@ const RegisterFrom = (props: IProps) => {
           autoFocus
         />
 
-        <Text>Usuario</Text>
-        <TextInput
+        <Input
+          label="Usuario"
           style={styles.input}
           onChangeText={setUserName}
           value={userName}
           placeholder="juanito"
         />
 
-        <Text>Contraseña</Text>
-        <TextInput
+        <Input
+          label="Contraseña"
           style={styles.input}
           onChangeText={setPassword}
           value={password}
@@ -52,9 +54,15 @@ const RegisterFrom = (props: IProps) => {
           secureTextEntry
         />
 
-        <Button onPress={register}>Enviar</Button>
-      </View>
-    </View>
+        <Button onPress={goToLogin} appearance="ghost">
+          ¿Ya tienes un usuario?
+        </Button>
+
+        <Button style={styles.button} onPress={register}>
+          Enviar
+        </Button>
+      </Layout>
+    </Layout>
   )
 }
 
@@ -63,22 +71,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  title: {
+    textAlign: 'center',
+    fontSize: 24,
+    marginBottom: 10,
+  },
   form: {
-    maxWidth: 800,
-    minWidth: 400,
-    margin: 40,
-    padding: 40,
+    alignSelf: 'center',
+    width: '90%',
+    maxWidth: 900,
+    padding: 30,
     borderRadius: 15,
-    backgroundColor: Colors.MintCream,
-    borderWidth: 1,
-    borderColor: Colors.CeladonBlue,
+    marginTop: 40,
   },
   input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    borderRadius: 7,
-    padding: 10,
+    margin: 10,
+  },
+  button: {
+    marginTop: 10,
   },
 })
 

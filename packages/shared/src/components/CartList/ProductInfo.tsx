@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { Image, StyleSheet } from 'react-native'
+import { Layout, Text } from '@ui-kitten/components'
 import Colors from '../../constants/Colors'
 import IProduct from '../../types/IPoduct'
 
@@ -11,10 +12,10 @@ const ProductInfo = (props: IProps) => {
   const { product } = props
 
   return (
-    <View style={styles.container}>
+    <Layout style={styles.container}>
       <Image style={styles.image} source={{ uri: product.image }} />
 
-      <View>
+      <Layout>
         <Text style={styles.title}>{product.title}</Text>
 
         <Text>
@@ -24,8 +25,8 @@ const ProductInfo = (props: IProps) => {
         <Text>
           <Text style={styles.attributeTitle}>Cantidad: </Text> 1
         </Text>
-      </View>
-    </View>
+      </Layout>
+    </Layout>
   )
 }
 
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 15,
-    borderBottomWidth: 5,
+    borderBottomWidth: 2,
     borderColor: Colors.MintCream,
   },
   image: {

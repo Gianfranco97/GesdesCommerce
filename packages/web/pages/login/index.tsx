@@ -11,9 +11,13 @@ const LoginPage = () => {
     router.replace('/products')
   }
 
+  const goToRegister = () => {
+    router.push('/registro')
+  }
+
   return (
     <BasicLayout>
-      <LoginFrom onSuccessLogin={onSuccessLogin} />
+      <LoginFrom onSuccessLogin={onSuccessLogin} goToRegister={goToRegister} />
     </BasicLayout>
   )
 }

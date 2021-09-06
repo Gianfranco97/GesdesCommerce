@@ -20,15 +20,15 @@ interface IProps {
 const ProductCard = (props: IProps) => {
   const { product } = props
   const router = useRouter()
-  const linkTo = useLinkTo()
-  const navigation = useNavigation()
+  // const linkTo = useLinkTo()
+  // const navigation = useNavigation()
 
   const goToProductDetail = () => {
     if (Platform.OS === 'web') {
       router.push(`/products/${product.id}`)
     } else {
-      linkTo(`/SingleProduct/`, { id: product.id })
-      navigation.navigate({ key: "SingleProduct" }, { id: product.id })
+      // linkTo(`/SingleProduct/`, { id: product.id })
+      // navigation.navigate({ key: "SingleProduct" }, { id: product.id })
     }
   }
 

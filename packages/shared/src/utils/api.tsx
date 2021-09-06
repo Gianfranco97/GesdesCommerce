@@ -54,7 +54,7 @@ const API = {
     })
   },
 
-  getAllCategories() {
+  getAllProductCategories() {
     return this.makeRequest({
       url: `${this.serverURL}/products/categories`,
     })

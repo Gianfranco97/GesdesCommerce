@@ -6,13 +6,13 @@ import { useRouter } from 'next/router'
 const RegisterPage = () => {
   const router = useRouter()
 
-  const onSuccessRegister = () => {
-    router.replace('/')
+  const goToLogin = () => {
+    router.push('/')
   }
 
   return (
     <BasicLayout>
-      <RegisterFrom onSuccessRegister={onSuccessRegister} />
+      <RegisterFrom onSuccessRegister={goToLogin} goToLogin={goToLogin} />
     </BasicLayout>
   )
 }
