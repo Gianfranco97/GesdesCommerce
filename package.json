@@ -13,8 +13,7 @@
     "android": "yarn workspace mobile android",
     "ios": "yarn workspace mobile ios",
     "format": "prettier --write .",
-    "lint": "eslint .",
-    "test": "yarn workspaces run test"
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@react-native-community/eslint-config": "2.0.0",

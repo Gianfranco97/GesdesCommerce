@@ -65,6 +65,14 @@ const API = {
       url: `${this.serverURL}/products?limit=2`,
     })
   },
+
+  addToCart(product: { productId: number; quantity: number }) {
+    return this.makeRequest({
+      url: `${this.serverURL}/products?limit=2`,
+      method: 'POST',
+      data: product,
+    })
+  },
 }
 
 export default API
